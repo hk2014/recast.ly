@@ -7,11 +7,30 @@ class App extends React.Component {
     };
   }
   
-  setCurrentVideo(event) {
-    console.log(event.target)
+  setCurrentVideo(video) {
+    // console.log(event)
+    // event.preventDefault();
     this.setState({
-      currentVideo: event.target
+      currentVideo: video
     });
+  }
+  
+  componentDidMount() {
+  }
+  
+  handleSearch(event) {
+    // console.log(event)
+    // var options = {
+    //   query: ,
+    //   max: 5,
+    //   key: 
+    // };
+    // searchYoutube(, this.setState(newState)
+    // console.log(event)
+    // this.setState({
+    //   videoList: 
+    //   currentVideo: 
+    // });
   }
   
   render() {
@@ -20,7 +39,7 @@ class App extends React.Component {
       <div>
         <nav className="navbar">
           <div className="col-md-6 offset-md-3">
-            <Search />
+            <Search search={this.handleSearch.bind(this)}/>
           </div>
         </nav>
         <div className="row">
