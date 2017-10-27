@@ -1,23 +1,23 @@
 var searchYouTube = (options, callback) => {
-  return $.get({
+  $.get({
     url: "https://www.googleapis.com/youtube/v3/search",
     data: {
       q: options.query,
       maxResults: options.max,
       key: options.key,
-      // videoEmbeddable: 'true',
       part: 'snippet',
     },
     success: function(data) {
-      console.log('success', data.items);
-      // expecting to get a videos array
-      // once we get the videos
-        // if theres a callback passed in
-          // call the callback on t e video list
-        data.items.map(video => callback(video))
+      console.log('success');
+      var info = {
+        videoList: data.items,
+        currentVideo: data.items[0]
+      };
+
+      callback(info);
       },
     error: function(data) {
-      console.log('FAIL', data);
+      console.log('FAIL');
     }
     });
 };

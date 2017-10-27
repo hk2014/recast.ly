@@ -8,29 +8,21 @@ class App extends React.Component {
   }
   
   setCurrentVideo(video) {
-    // console.log(event)
-    // event.preventDefault();
     this.setState({
       currentVideo: video
     });
   }
   
-  componentDidMount() {
-  }
+  // componentDidMount() {
+  // }
   
   handleSearch(event) {
-    // console.log(event)
-    // var options = {
-    //   query: ,
-    //   max: 5,
-    //   key: 
-    // };
-    // searchYoutube(, this.setState(newState)
-    // console.log(event)
-    // this.setState({
-    //   videoList: 
-    //   currentVideo: 
-    // });
+    var options = {
+      query: event.target.value,
+      max: 5,
+      key: YOUTUBE_API_KEY 
+    };
+    searchYouTube(options, this.setState.bind(this));
   }
   
   render() {
