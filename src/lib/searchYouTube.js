@@ -10,7 +10,7 @@ var searchYouTube = (options, callback) => {
     success: function(data) {
       console.log('success');
       var info = {
-        videoList: data.items,
+        videoList: data.items.slice(1),
         currentVideo: data.items[0]
       };
 
@@ -22,7 +22,7 @@ var searchYouTube = (options, callback) => {
     });
 };
 
-window.searchYouTube = searchYouTube;
+window.searchYouTube = _.debounce(searchYouTube, 500);
 
 
 // $.ajax({

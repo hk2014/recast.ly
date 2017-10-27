@@ -19,7 +19,7 @@ class App extends React.Component {
   handleSearch(event) {
     var options = {
       query: event.target.value,
-      max: 5,
+      max: 6,
       key: YOUTUBE_API_KEY 
     };
     searchYouTube(options, this.setState.bind(this));
